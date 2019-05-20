@@ -1,5 +1,5 @@
 {
-  "name": "Atable",
+  "name": "boat_and_breakfast",
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^4.0.2",
