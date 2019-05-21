@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :boats
+  has_many :boats, foreign_key: :owner_id, dependent: :destroy
   has_many :bookings
   has_many :rental_boats, through: :bookings, source: :boats
   validates :last_name, presence: true
