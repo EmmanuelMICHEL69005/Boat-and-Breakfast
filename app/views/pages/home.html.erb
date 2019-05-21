@@ -2,3 +2,18 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 <p>testing modif
 </p>
+
+<tbody>
+  <% @boats.each do |boat| %>
+    <tr>
+      <td><%= boat.name %></td>
+      <td><%= boat.location %></td>
+      <td><%= boat.capacity%></td>
+      <td><%= boat.category %></td>
+      <td><%= boat.price %></td>
+      <td><%= link_to 'Show', boat %></td>
+      <td><%= link_to 'Edit', edit_boat_path(boat) %></td>
+      <td><%= link_to 'Destroy', boat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</tbody>
