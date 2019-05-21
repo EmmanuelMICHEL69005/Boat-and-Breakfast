@@ -1,11 +1,15 @@
 class BoatsController < ApplicationController
    skip_before_action :authenticate_user!, only: [:index, :show]
 
+
+
    def index
     @boats = Boat.all
+    @boats = policy_scope(Boat).order(created_at: :desc)
   end
 
   def show
+    authorize @boat
   end
 
   def new
