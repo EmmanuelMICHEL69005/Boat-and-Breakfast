@@ -6,13 +6,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <%= cl_image_tag @article.photo, height: 300, width: 400, crop: :fill %>
+      <%#= cl_image_tag @article.photo, height: 300, width: 400, crop: :fill %>
     </div>
     <div class="carousel-item">
-      <%= cl_image_tag @article.photo, height: 300, width: 400, crop: :fill %>
+      <%#= cl_image_tag @article.photo, height: 300, width: 400, crop: :fill %>
     </div>
     <div class="carousel-item">
-      <%= cl_image_tag @article.photo, height: 300, width: 400, crop: :fill %>
+      <%#= cl_image_tag @article.photo, height: 300, width: 400, crop: :fill %>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -25,9 +25,29 @@
   </a>
 </div>
 <hr>
-  <div>
+  <div id="nameboat">
     <blockquote class="blockquote">
-      <h3><%= boat.name %></h3>
+      <h3><%= @boat.name %></h3>
     </blockquote>
   </div>
 <hr>
+
+<div>
+  <p>
+    <strong>name:</strong>
+    <%= @boat.name %>
+  </p>
+  <p>
+    <strong>capacity:</strong>
+    <%= @boat.capacity %>
+  </p>
+  <p>
+    <strong>category:</strong>
+    <%= @boat.category %>
+  </p>
+  <p>
+    <strong>price:</strong>
+    <%= @boat.price %>
+  </p>
+</div>
+
