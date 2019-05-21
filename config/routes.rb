@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'boats/index'
-  get 'boats/new'
-  get 'boats/show'
-  get 'boats/create'
-  get 'boats/upade'
   devise_for :users
   root to: 'pages#home'
   resources :boats
