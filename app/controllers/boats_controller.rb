@@ -1,17 +1,19 @@
 class BoatsController < ApplicationController
+   skip_before_action :authenticate_user!, only: [:index, :show]
+
    def index
-    @boats = boat.all
+    @boats = Boat.all
   end
 
   def show
   end
 
   def new
-    @boat = boat.new
+    @boat = Boat.new
   end
 
   def create
-    boat = boat.create!(boat_params)
+    boat = Boat.create!(boat_params)
     redirect_to boat_path(boat.id)
   end
 
@@ -35,7 +37,7 @@ class BoatsController < ApplicationController
   end
 
   def set_boat
-    @boat = boat.find(params[:id])
+    @boat = Boat.find(params[:id])
   end
 
 end
