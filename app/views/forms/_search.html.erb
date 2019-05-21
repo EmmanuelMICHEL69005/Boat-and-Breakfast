@@ -1,0 +1,14 @@
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Category:") %>
+  <%= text_field_tag(:q) %>
+</br>
+  <%= label_tag(:q, "Capacity:") %>
+  <%= text_field_tag(:q) %>
+</br>
+  <%= label_tag(:c, "beginning date:") %>
+  <%= text_field_tag(:c) %>
+  <%= label_tag(:v, "ending date:") %>
+  <%= text_field_tag(:v) %>
+</br>
+  <%= submit_tag("Search") %>
+<% end %>
