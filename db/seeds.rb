@@ -76,3 +76,35 @@ boat2 = Boat.create!(
   skipper: false,
   owner: user2
 )
+
+#user3 with 1 boat and 1 reservation
+user3 = User.create!(
+  password: 'azerty',
+  email: 'user3@example.com',
+  first_name: 'fuser3',
+  last_name: 'luser3',
+  phone_number: rand(1000000000),
+  boat_licence: Faker::Vehicle.vin
+)
+#ending = ((Time.now + rand(4)* 60*24*60).strftime("%d/%m/%y"))
+
+booking1 = Booking.create!(
+    beginning_date: Time.now.strftime("%d/%m/%y"),
+    ending_date: (Time.now + rand(4)* 60*24*60).strftime("%d/%m/%y"),
+    total_price: 190,
+    picking_place: 'Toulon',
+    leaving_place: 'Monaco',
+    user: user3,
+    boat: boat2
+)
+
+booking2 = Booking.create!(
+    beginning_date: Time.now.strftime("%d/%m/%y"),
+    ending_date: (Time.now + rand(4)* 60*24*60).strftime("%d/%m/%y"),
+    total_price: 50005,
+    picking_place: 'Lyon',
+    leaving_place: 'Grenoble',
+    user: user3,
+    boat: boat2
+)
+
