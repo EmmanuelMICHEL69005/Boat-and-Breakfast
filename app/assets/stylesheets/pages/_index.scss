@@ -7,3 +7,14 @@ padding-top: 100px;
 margin-left: 100px;
 
 }
+
+.main-container {
+display:flex;
+}
+
+.row-map {  // required for Safari
+    position: sticky;
+    width: 100%;
+    top: 0;
+ // required as well.
+}
