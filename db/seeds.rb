@@ -76,3 +76,5 @@ boat2 = Boat.create!(
   skipper: false,
   owner: user2
 )
+
+

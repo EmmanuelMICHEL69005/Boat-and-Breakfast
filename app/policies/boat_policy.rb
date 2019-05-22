@@ -7,8 +7,9 @@ class BoatPolicy < ApplicationPolicy
   def show?
     true
   end
+
   def create?
-    return true
+    true
   end
   def update?
     record.user == user
