@@ -1,2 +1,40 @@
-<h1>Boats#index</h1>
-<p>Find me in app/views/boats/index.html.erb</p>
+<div class="title-results">
+<h1>Results :</h1>
+</div>
+
+      <div class="row">
+        <% @boats.each do |boat| %>
+          <div class="col-4">
+            <div class="card-boat">
+              <img src="https://images.unsplash.com/photo-1520255870062-bd79d3865de7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3304&q=80">
+
+              <div class="card-trip-infos">
+
+                <div class="boat-name">
+                  <h2><%=boat.name%></h2>
+                  <p><%=boat.category %> </p>
+                </div>
+
+                <div class="boat-capacity">
+                  <i class="far fa-user"></i><p><%= boat.capacity%></p>
+                </div>
+
+                <div class="boat-location">
+                  <i class="fas fa-map-marker-alt"></i><p><%= boat.location %></p>
+                </div>
+
+                <div>
+                  <h2 class="card-trip-pricing"><%= boat.price%><%="€ / Day"%></h2>
+                  <p><%= boat.owner.first_name %><%= " "%><%= boat.owner.last_name %></p>
+                </div>
+
+                <% if boat.skipper ==true %>
+                  <div class="boat-skipper"><i class="fas fa-anchor"></i></div>
+                <% end %>
+
+              </div>
+
+            </div>
+          </div>
+        <% end %>
+    </div>
