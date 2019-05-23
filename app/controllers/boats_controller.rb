@@ -9,7 +9,9 @@ class BoatsController < ApplicationController
     @markers = @boats.where.not(latitude: nil, longitude: nil).map do |boat|
       {
         lat: boat.latitude,
-        lng: boat.longitude
+        lng: boat.longitude,
+        # infoWindow: render_to_string(partial: "infowindow", locals: { boat: boat }),
+        image_url: helpers.asset_url('boat.png')
       }
     end
   end

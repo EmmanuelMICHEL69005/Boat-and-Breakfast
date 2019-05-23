@@ -13,9 +13,16 @@ margin-left: 100px;
 display:flex;
 }
 
-.row-map {  // required for Safari
-    position: sticky;
+.row-map {
+  position: fixed;
+  right: -5px;
+}
+
+#map {  // required for Safari
     width: 100%;
     top: 0;
+    height: 300px;
  // required as well.
 }
+
+
