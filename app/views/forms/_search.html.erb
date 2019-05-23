@@ -1,8 +1,17 @@
 <div class="form_search">
 <%= form_tag("/search", method: "get") do %>
   <%= label_tag(:q, "Kind of boat:") %>
-  <%= text_field_tag(:q) %>
+  <div class="btn-group">
+  <button type="button" class="btn btn-Info button_pirates dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Choose your Titanic
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Voilier</a>
+    <a class="dropdown-item" href="#">Yacht</a>
+  </div>
+</div>
 </br>
+<br>
   <%= label_tag(:q, "Capacity:") %>
   <div class="btn-group">
   <button type="button" class="btn btn-Info button_pirates dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
