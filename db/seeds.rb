@@ -1,8 +1,9 @@
 require 'faker'
-
+Review.destroy_all
 User.destroy_all
 Booking.destroy_all
 Boat.destroy_all
+
 
 20.times do
   user = User.create!(
@@ -15,19 +16,31 @@ Boat.destroy_all
   )
 
   rand(3).times do
-    Boat.create!(
-      name: Faker::Vehicle.model,
+    boat = Boat.create!(
+      name: Faker::Name.first_name,
       category: ["Voilier", "Bateau à moteur"].sample,
-      brand: ["joliemer", "beneteau", "zodiac"].sample,
-      model: ["h4", "h3"].sample,
+      brand: ["joliemer", "beneteau", "zodiac", "Petit Bateau"].sample,
+      model: ["Cruiser", "Honey moon", "Never Lost", "The master of seas", "Below the surface", "The surfer of the seas"].sample,
+      remote_photo_url: ["https://www.discoverboating.com/sites/default/files/styles/cropped_grid_item/public/all-purpose_fishingboat_0.jpg?h=ad9b7fbf&itok=PuLu5f8T",
+        "https://media.tmgcreative.com/2019/TAHOE_122019/Sport-Series_182019/700_4646/Product-Beauty_1326546/700_img177098_700.jpg",
+        "https://cdn.nautal.com/media/boats/463/x/463060.jpg",
+        "https://samboat.cellar.services.clever-cloud.com/announcements/5b22c4934431d-m.jpg",
+        "https://fifty-wp.s3.amazonaws.com/detours/uploads/2018/08/louer-un-voilier-potes-800x480.png"].sample,
       capacity: (4..10).to_a.sample,
       length: (6..20).to_a.sample,
-      location: ['Toulon', 'Marseille', 'Nice'].sample,
+      location: ['Toulon', 'Marseille', 'Nice', 'Carnon', 'Sete', 'Biarritz', 'Arcachon', 'Brest', 'Saint-Malo','Ajaccio', 'Saint Florent'].sample,
       price: (100..2000).to_a.sample,
       accesories: 'jet-ski',
       skipper: [true, false].sample,
       owner: user
     )
+    rand(3).times do
+    Review.create!(
+      content: ['Thank you so much for this wonderfull night...', 'NUL', 'Decu de ce bateau', 'Skipper super sympa', 'Merci pour ces vacances'].sample,
+      rating: (0..5).to_a.sample,
+      boat: boat,
+      )
+    end
   end
 end
 
@@ -57,6 +70,13 @@ boat1 = Boat.create!(
   brand: "joliemer",
   model: "h4",
   capacity: 4,
+  remote_photo_url: ["https://www.discoverboating.com/sites/default/files/styles/cropped_grid_item/public/all-purpose_fishingboat_0.jpg?h=ad9b7fbf&itok=PuLu5f8T",
+    "https://media.tmgcreative.com/2019/TAHOE_122019/Sport-Series_182019/700_4646/Product-Beauty_1326546/700_img177098_700.jpg",
+    "https://cdn.nautal.com/media/boats/463/x/463060.jpg",
+    "https://samboat.cellar.services.clever-cloud.com/announcements/5b22c4934431d-m.jpg",
+    "https://fifty-wp.s3.amazonaws.com/detours/uploads/2018/08/louer-un-voilier-potes-800x480.png"].sample,
+  capacity: (4..10).to_a.sample,
+  picture: "https://fifty-wp.s3.amazonaws.com/detours/uploads/2018/08/louer-un-voilier-potes-800x480.png",
   length: 12,
   location: 'Toulon',
   price: 150,
@@ -71,6 +91,13 @@ boat2 = Boat.create!(
   brand: "joliemer",
   model: "h2",
   capacity: 6,
+  remote_photo_url: ["https://www.discoverboating.com/sites/default/files/styles/cropped_grid_item/public/all-purpose_fishingboat_0.jpg?h=ad9b7fbf&itok=PuLu5f8T",
+    "https://media.tmgcreative.com/2019/TAHOE_122019/Sport-Series_182019/700_4646/Product-Beauty_1326546/700_img177098_700.jpg",
+    "https://cdn.nautal.com/media/boats/463/x/463060.jpg",
+    "https://samboat.cellar.services.clever-cloud.com/announcements/5b22c4934431d-m.jpg",
+    "https://fifty-wp.s3.amazonaws.com/detours/uploads/2018/08/louer-un-voilier-potes-800x480.png"].sample,
+  picture: "https://fifty-wp.s3.amazonaws.com/detours/uploads/2018/08/louer-un-voilier-potes-800x480.png",
+  capacity: (4..10).to_a.sample,
   length: 14,
   location: 'Toulon',
   price: 250,

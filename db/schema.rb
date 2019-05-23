@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_22_092201) do
+ActiveRecord::Schema.define(version: 2019_05_23_151959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_05_22_092201) do
     t.bigint "owner_id"
     t.float "latitude"
     t.float "longitude"
+    t.string "photo"
     t.index ["owner_id"], name: "index_boats_on_owner_id"
   end
 
@@ -47,6 +48,15 @@ ActiveRecord::Schema.define(version: 2019_05_22_092201) do
     t.bigint "boat_id"
     t.index ["boat_id"], name: "index_bookings_on_boat_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.integer "rating"
+    t.bigint "boat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["boat_id"], name: "index_reviews_on_boat_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,4 +76,5 @@ ActiveRecord::Schema.define(version: 2019_05_22_092201) do
   end
 
   add_foreign_key "boats", "users", column: "owner_id"
+  add_foreign_key "reviews", "boats"
 end

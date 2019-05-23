@@ -3,7 +3,10 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the styleshe
 
 import { initMapbox } from '../plugins/init_mapbox';
 
+import { initAutocomplete } from '../plugins/init_autocomplete.js';
+
 initMapbox();
+initAutocomplete()
 
 import flatpickr from "flatpickr"
 import 'flatpickr/dist/flatpickr.min.css'
@@ -14,7 +17,7 @@ flatpickr("#dateFin", {
   altInput: true,
     altFormat: "j F Y",
     dateFormat: "Y-m-d",
-    minDate: "today"
+    minDate: "today",
 });
 
 flatpickr("#dateDebut", {
@@ -22,5 +25,4 @@ flatpickr("#dateDebut", {
     altFormat: "j F Y",
     dateFormat: "Y-m-d",
     minDate: "today",
-
 });
