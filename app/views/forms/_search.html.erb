@@ -1,35 +1,20 @@
 <div class="form_search">
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Kind of boat:") %>
-  <div class="btn-group">
-  <button type="button" class="btn btn-Info button_pirates dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Choose your Titanic
-  </button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Voilier</a>
-    <a class="dropdown-item" href="#">Yacht</a>
-  </div>
-</div>
-</br>
-<br>
-  <%= label_tag(:q, "Capacity:") %>
-  <div class="btn-group">
-  <button type="button" class="btn btn-Info button_pirates dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    How many pirates?
-  </button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">1 à 2</a>
-    <a class="dropdown-item" href="#">3 à 4</a>
-    <a class="dropdown-item" href="#">5 à 8</a>
-    <a class="dropdown-item" href="#">9 et plus: Mode "La croisière s'amuse"</a>
-  </div>
-</div>
-</br>
-  <%= label_tag(:dateDebut, "Date de début de location:") %>
-  <%= text_field_tag(:dateDebut) %>
+<%= form_tag boats_path, method: :get do %>
+  <%= label_tag(:location, "Where?") %>
+  <%= text_field_tag :location,
+    params[:location],
+    class: "form-control"
+  %>
+  <%= label_tag(:capacity, "How many Buddies?") %>
+  <%=
+      range_field_tag :capacity, params[:capacity], min: 1, max: 10, step: 2
+  %>
+    <%= label_tag(:dateDebut, "Date de début de location:") %>
+  <%= text_field_tag(:dateDebut, params[:dateDebut]) %>
   <%= label_tag(:dateFin, "Date de fin:") %>
-  <%= text_field_tag(:dateFin) %>
-</br>
+  <%= text_field_tag(:dateFin, params[:dateFin]) %>
+  <%= label_tag(:boatType, "Type of boat" )%>
+  <%= select_tag :boatType, raw("<option></option><option>Voilier</option><option>Bateau à Moteur</option>") %>
   <%= submit_tag("Search", class: "button")%>
 <% end %>
 </div>
