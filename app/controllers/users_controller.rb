@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
- def index
+  before_action :set_user, only: :show
+
+  def index
     @users = User.all
   end
 
   def show
+    authorize @user
   end
 
   def new
