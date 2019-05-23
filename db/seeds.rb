@@ -1,6 +1,8 @@
 require 'faker'
 
 User.destroy_all
+Booking.destroy_all
+Boat.destroy_all
 
 20.times do
   user = User.create!(
@@ -108,3 +110,4 @@ booking2 = Booking.create!(
     boat: boat2
 )
 
+puts "Users created : #{User.all.size}/23"
