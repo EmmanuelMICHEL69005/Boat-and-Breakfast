@@ -1,10 +1,15 @@
 class BoatsController < ApplicationController
-   skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
-
-
-   def index
+  def index
     @boats = policy_scope(Boat)
+
+    @markers = @boats.where.not(latitude: nil, longitude: nil).map do |boat|
+      {
+        lat: boat.latitude,
+        lng: boat.longitude
+      }
+    end
   end
 
   def show
@@ -20,8 +25,8 @@ class BoatsController < ApplicationController
     @boat = record.user.boats.new(boat_params)
     authorize @boat
     if @boat.save
-    redirect_to @boat
-  end
+      redirect_to @boat
+    end
   end
 
   def edit
@@ -47,5 +52,4 @@ class BoatsController < ApplicationController
     @boat = Boat.find(params[:id])
     authorize @boat
   end
-
 end

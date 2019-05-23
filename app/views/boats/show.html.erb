@@ -1,2 +1,74 @@
-<h1>Boats#show</h1>
-<p>Find me in app/views/boats/show.html.erb</p>
+<h1 style= "padding: 20px"><%= @boat.name %></h1>
+
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div style="background-size: cover; background-position: center; height: 50vh; background-image: url('https://samboat.cellar.services.clever-cloud.com/announcements/5cb4ff805341e-l.jpg');">
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div style="background-size: cover; background-position: center; height: 50vh; background-image: url('https://samboat.cellar.services.clever-cloud.com/announcements/5cb500cc465b1-l.jpg');">
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div style="background-size: cover; background-position: center; height: 50vh; background-image: url('https://samboat.cellar.services.clever-cloud.com/announcements/5c773d3126332-l.jpg');">
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+
+<div class = "container-2">
+    <h2><%=@boat.category %> </h2>
+    <h2><%= @boat.capacity%></h2>
+    <h2><%= @boat.location %></h2>
+    <h2><%= @boat.price%><%="€ / Day"%></h2>
+    <h2><%= @boat.owner.first_name %></h2>
+    <h2><%= @boat.owner.last_name %></h2>
+    <h2><%= @boat.skipper %></h2>
+</div>
+<div class="container">
+    <h2>Captain description</h2>
+    <p> Bonjour à tous,
+
+Je vous propose notre bateau quasi neuf et idéal pour une sortie en famille, entre amis, sécurisant pour les enfants. Important : MOTEUR 4 TEMPS nouvelle génération, consommation minimale (env. 6 litres heure en navigation normale)
+
+Il est amarré au port de Cannes, à côté du Palais des Festivals. Parking couvert à 30 mètres du bateau !!!
+
+Vous pourrez profiter des îles de Lérins, visiter les criques des rochers rouges de l’Ésterel ou tout simplement faire une bonne partie de pêche.
+
+C'est le bateau idéal pour la région, profitez-en !
+
+Équipement :
+
+Table
+Glacière électrique
+Douchette de pont
+Taud Bimini
+Supports cannes à pêche
+Francs bords hauts sécurisants pour les enfants
+Plage avant
+Prise 12 v
+Echelle baignade téléscopique
+Très grand coffre
+Maximum 6 personnes
+Équipement sécurité neuf et complet
+
+Un chèque de caution de 2000 € est demandé à la livraison du bateau, il sera restitué au retour.
+Le bateau est livré avec le plein d'essence (super 98). Il devra être restitué avec le plein effectué.
+
+PERMIS BATEAU DEPUIS AU MINIMUM 2 ANS RÉVOLUS (aucune dérogation)
+
+PAS DE LOCATION 1/2 JOUNEE NO HALF DAY RENT
+
+Vous pouvez me poser toutes vos questions par la messagerie du site.
+A très bientôt à bord :) </p>
+</div>
