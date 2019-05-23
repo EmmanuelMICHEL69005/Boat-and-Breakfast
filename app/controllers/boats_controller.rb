@@ -3,11 +3,15 @@ class BoatsController < ApplicationController
 
   def index
     @boats = policy_scope(Boat)
-
+    @boats = @boats.where(capacity: params[:capacity]) unless params[:capacity].blank?
+    @boats = @boats.near(params[:location], 60) unless params[:location].blank?
+    @boats = @boats.where(category: params[:boatType]) unless params[:boatType].blank?
     @markers = @boats.where.not(latitude: nil, longitude: nil).map do |boat|
       {
         lat: boat.latitude,
-        lng: boat.longitude
+        lng: boat.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { boat: boat }),
+        image_url: helpers.asset_url('boat.png')
       }
     end
   end

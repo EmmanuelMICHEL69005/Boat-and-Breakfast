@@ -14,9 +14,16 @@ text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 display:flex;
 }
 
-.row-map {  // required for Safari
-    position: sticky;
+.row-map {
+  position: fixed;
+  right: -5px;
+}
+
+#map {  // required for Safari
     width: 100%;
     top: 0;
+    height: 300px;
  // required as well.
 }
+
+

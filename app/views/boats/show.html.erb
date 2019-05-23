@@ -27,13 +27,31 @@
 
 
 <div class = "container-2">
-    <h2><%=@boat.category %> </h2>
-    <h2><%= @boat.capacity%></h2>
-    <h2><%= @boat.location %></h2>
-    <h2><%= @boat.price%><%="€ / Day"%></h2>
-    <h2><%= @boat.owner.first_name %></h2>
-    <h2><%= @boat.owner.last_name %></h2>
-    <h2><%= @boat.skipper %></h2>
+    <div>
+      <i class="fas fa-ship"></i>
+      <h2><%=@boat.category %> </h2>
+    </div>
+    <div>
+      <i class="far fa-user"></i>
+      <h2><%= @boat.capacity%></h2>
+    </div>
+    <div>
+      <i class="fas fa-map-marker-alt"></i>
+      <h2><%= @boat.location %></h2>
+    </div>
+    <div>
+      <i class="fas fa-euro-sign"></i>
+      <h2><%= @boat.price%><%="€ / Day"%></h2>
+    </div>
+    <div>
+      <h2><%= @boat.owner.first_name %></h2>
+      <h2><%= @boat.owner.last_name %></h2>
+    </div>
+    <% if @boat.skipper == true %>
+      <div>
+        <i class="fas fa-anchor"></i>
+      </div>
+    <%end%>
 </div>
 <div class="container">
     <h2>Captain description</h2>
