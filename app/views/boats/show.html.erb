@@ -89,4 +89,16 @@ PAS DE LOCATION 1/2 JOUNEE NO HALF DAY RENT
 
 Vous pouvez me poser toutes vos questions par la messagerie du site.
 A très bientôt à bord :) </p>
+
+<h2>Crew reviews</h2>
+
+  <% @boat.reviews.each do |review| %>
+  <div class ="reviews">
+    <h5 style = "color:grey; font-style: italic" class="special">"<%= review.content %>"</h5>
+    <% review.rating.times do %>
+        <i class="far fa-star fa-2x text-warning"></i>
+    <% end %>
+  </div>
+  <% end %>
+
 </div>

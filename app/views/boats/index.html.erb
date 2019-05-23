@@ -10,7 +10,7 @@
       <div class="col-4">
         <a href = "<%=boat_path(boat)%>">
         <div class="card-boat">
-          <img src="https://images.unsplash.com/photo-1520255870062-bd79d3865de7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3304&q=80">
+          <%= cl_image_tag boat.photo, height: 300, width: 400, crop: :fill %>
 
           <div class="card-trip-infos">
 
