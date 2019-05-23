@@ -8,7 +8,7 @@ flatpickr("#dateFin", {
   altInput: true,
     altFormat: "j F Y",
     dateFormat: "Y-m-d",
-    minDate: "today"
+    minDate: "today",
 });
 
 flatpickr("#dateDebut", {
@@ -16,5 +16,4 @@ flatpickr("#dateDebut", {
     altFormat: "j F Y",
     dateFormat: "Y-m-d",
     minDate: "today",
-
 });

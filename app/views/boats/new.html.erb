@@ -1,2 +1,20 @@
 <h1>Boats#new</h1>
 <p>Find me in app/views/boats/new.html.erb</p>
+
+<%= simple_form_for [@boat]  do |f| %>
+<%= f.input :name %>
+<%= f.input :category %>
+<%= f.input :brand %>
+<%= f.input :model %>
+<%= f.input :capacity %>
+<%= f.input :length %>
+<%= f.input :location %>
+<%= f.input :price %>
+<%= f.input :accessories %>
+<%= f.input :skipper %>
+<%=f.submit %>
+<%end%>
+
+
+<%= link_to 'Back', user_path %>
+
