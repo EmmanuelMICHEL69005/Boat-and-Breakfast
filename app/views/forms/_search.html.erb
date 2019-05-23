@@ -1,16 +1,27 @@
 <div class="form_search">
 <%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Category:") %>
+  <%= label_tag(:q, "Kind of boat:") %>
   <%= text_field_tag(:q) %>
 </br>
   <%= label_tag(:q, "Capacity:") %>
-  <%= text_field_tag(:q) %>
+  <div class="btn-group">
+  <button type="button" class="btn btn-Info button_pirates dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    How many pirates?
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">1 à 2</a>
+    <a class="dropdown-item" href="#">3 à 4</a>
+    <a class="dropdown-item" href="#">5 à 8</a>
+    <a class="dropdown-item" href="#">9 et plus: Mode "La croisière s'amuse"</a>
+  </div>
+</div>
 </br>
-  <%= label_tag(:dateDebut, "Beginning date:") %>
+  <%= label_tag(:dateDebut, "Date de début de location:") %>
   <%= text_field_tag(:dateDebut) %>
-  <%= label_tag(:dateFin, "Ending date:") %>
+  <%= label_tag(:dateFin, "Date de fin:") %>
   <%= text_field_tag(:dateFin) %>
 </br>
   <%= submit_tag("Search", class: "button")%>
 <% end %>
 </div>
+
