@@ -6,6 +6,7 @@ class BoatsController < ApplicationController
   end
 
   def show
+    set_boat
   end
 
   def new
