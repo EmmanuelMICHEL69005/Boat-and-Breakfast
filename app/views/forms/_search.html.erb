@@ -1,16 +1,21 @@
 <div class="form_search">
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Category:") %>
-  <%= text_field_tag(:q) %>
-</br>
-  <%= label_tag(:q, "Capacity:") %>
-  <%= text_field_tag(:q) %>
-</br>
-  <%= label_tag(:dateDebut, "Beginning date:") %>
-  <%= text_field_tag(:dateDebut) %>
-  <%= label_tag(:dateFin, "Ending date:") %>
-  <%= text_field_tag(:dateFin) %>
-</br>
+<%= form_tag boats_path, method: :get do %>
+  <%= label_tag(:location, "Where?") %>
+  <%= text_field_tag :location,
+    params[:location],
+    class: "form-control"
+  %>
+  <%= label_tag(:capacity, "How many Buddies?") %>
+  <%=
+      range_field_tag :capacity, params[:capacity], min: 1, max: 10, step: 2
+  %>
+    <%= label_tag(:dateDebut, "Date de début de location:") %>
+  <%= text_field_tag(:dateDebut, params[:dateDebut]) %>
+  <%= label_tag(:dateFin, "Date de fin:") %>
+  <%= text_field_tag(:dateFin, params[:dateFin]) %>
+  <%= label_tag(:boatType, "Type of boat" )%>
+  <%= select_tag :boatType, raw("<option></option><option>Voilier</option><option>Bateau à Moteur</option>") %>
   <%= submit_tag("Search", class: "button")%>
 <% end %>
 </div>
+
