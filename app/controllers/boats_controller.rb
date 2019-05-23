@@ -17,15 +17,23 @@ class BoatsController < ApplicationController
   end
 
   def new
-    @boat = record.user.boats.new
+    p current_user
+    @boat = Boat.new
     authorize @boat
   end
 
   def create
-    @boat = record.user.boats.new(boat_params)
+    @boat = Boat.new(boat_params)
+    @boat.owner = current_user
     authorize @boat
-    if @boat.save
-      redirect_to @boat
+    respond_to do |format|
+      if @boat.save
+        format.html { redirect_to @boat, notice: 'Boat was successfully created.' }
+        format.json { render :show, status: :created, location: @boat }
+      else
+        format.html { render :new }
+        format.json { render json: @boat.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -33,19 +41,29 @@ class BoatsController < ApplicationController
   end
 
   def update
-    @boat.update(boat_params)
-    redirect_to boat_path(@boat.id)
+    respond_to do |format|
+      if @boat.update(boat_params)
+        format.html { redirect_to @boat, notice: 'Boat was successfully updated.' }
+        format.json { render :show, status: :ok, location: @restaurant }
+      else
+        format.html { render :edit }
+        format.json { render json: @boat.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
-    @boat.destroy!
-    redirect_to boats_path
+    @boat.destroy
+    respond_to do |format|
+      format.html { redirect_to boats_url, notice: 'Boat was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
 
   def boat_params
-    params.require(:boat).permit(:name, :location, :category, :brand, :model, :capacity, :lenght, :price, :picture, :aceesories, :skipper)
+    params.require(:boat).permit(:name, :location, :category, :brand, :model, :capacity, :lenght, :price, :photo, :aceesories, :skipper)
   end
 
   def set_boat
