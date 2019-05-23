@@ -1,5 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "boat";
 
 .title-results {
 
@@ -7,4 +8,15 @@ padding-top: 100px;
 margin-left: 100px;
 text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 
+}
+
+.main-container {
+display:flex;
+}
+
+.row-map {  // required for Safari
+    position: sticky;
+    width: 100%;
+    top: 0;
+ // required as well.
 }

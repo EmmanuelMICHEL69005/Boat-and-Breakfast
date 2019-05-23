@@ -3,6 +3,13 @@ class BoatsController < ApplicationController
 
   def index
     @boats = policy_scope(Boat)
+
+    @markers = @boats.where.not(latitude: nil, longitude: nil).map do |boat|
+      {
+        lat: boat.latitude,
+        lng: boat.longitude
+      }
+    end
   end
 
   def show
