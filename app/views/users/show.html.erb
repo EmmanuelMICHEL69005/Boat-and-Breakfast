@@ -1,51 +1,133 @@
-<h1> Welcome to your setting page </h1>
-
-<h2>Change your account parameters</h2>
-
-<div class="edit-user">
-
-   <form action="/">
-    <label for="Last_Name">Last Name</label>
-    <input type="text" name="Last_name" id="Last_name" value=<%=@user.last_name%>><br>
-    <label for="First_Name">Last Name</label>
-    <input type="text" name="First_name" id="First_name" value=<%=@user.first_name%>><br>
-    <label for="Phone_Number">Phone Number</label>
-    <input type="text" name="phone" id="Phone_number" value=<%=@user.phone_number%>><br>
-    <label for="Boat_licence">Boat Licence</label>
-    <input type="text" name="Boat_licence" id="Boat_licence" value=<%=@user.boat_licence%>><br>
-    <label for="Email">Phone Number</label>
-    <input type="text" name="Email" id="Email" value=<%=@user.email%>><br>
-    <input type="submit" value="Submit">
-  </form>
-</div>
-<h2>Manage your float</h2>
-<input type="submit" name="commit" value="Add a Boat" class="button" data-disable-with="Add a Boat">
-
-<%@user.boats.each do |boat|%>
-<p><%=boat.name%></p>
-<%end %>
-
-
 <div class="container">
-   <div class="form-row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-        <h2>Create a Boat</h2>
-      </div>
-          <div class="form-inputs-2">
-            <%= simple_form_for [@boat] do |f| %>
-              <%= f.input :name %>
-              <%= f.input :category %>
-              <%= f.input :photo %>
-              <%= f.input :brand %>
-              <%= f.input :model %>
-              <%= f.input :capacity %>
-              <%= f.input :length %>
-              <%= f.input :location %>
-              <%= f.input :price %>
-              <%= f.input :accesories %>
-              <%= f.input :skipper %>
-              <%=f.submit class: "btn btn-primary" %>
-            <%end%>
-          </div>
+<h1> Welcome to your setting page </h1>
+<br>
+<hr>
+<h2 style ="color: rgb(46, 90, 150); font-weight: bold">Change your account parameters</h2>
+<hr>
+<br>
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Last Name</label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Email" value=<%=@user.last_name%>>
     </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">First Name</label>
+      <input type="text" class="form-control" id="inputPassword4" placeholder="Password" value=<%=@user.first_name%>>
+    </div>
+  </div>
+    <div class="form-row">
+  <div class="form-group col-md-4">
+    <label for="inputAddress">Phone Number</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" value=<%=@user.phone_number%>>
+  </div>
+  <div class="form-group col-md-4">
+    <label for="inputAddress2">Boat Licence</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" value=<%=@user.boat_licence%>>
+  </div>
+
+    <div class="form-group col-md-4">
+      <label for="inputCity">email</label>
+      <input type="text" class="form-control" id="inputCity" value=<%=@user.email%>>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Save changes</button>
+</form>
+
+<br>
+<hr>
+<h2 style ="color: rgb(46, 90, 150); font-weight: bold">Manage your boat fleet</h2>
+<hr>
+<br>
+<hr>
+<h3>Your boat fleet:</h3>
+<hr>
+<br>
+
+<table class="table">
+  <thead class="thead-dark">
+    <th scope="col"></th>
+    <th scope="col">Boat Name</th>
+    <th scope="col">Location</th>
+    <th scope="col">Category</th>
+    <th scope="col">Model</th>
+    <th scope="col">Capacity</th>
+    <th scope="col">Length</th>
+    <th scope="col">Price</th>
+    <th scope="col"></th>
+  </thead>
+<%@user.boats.each do |boat|%>
+  <tr>
+    <td><%= cl_image_tag boat.photo, height: 100, width: 100, crop: :fill %></td>
+    <td><%=boat.name%></td>
+    <td><%=boat.location%></td>
+    <td><%=boat.category%></td>
+    <td><%=boat.model%></td>
+    <td><%=boat.capacity%></td>
+    <td><%=boat.length%></td>
+    <td><%=boat.price%></td>
+    <td><%= link_to(cl_image_tag("https://cdn4.iconfinder.com/data/icons/email-2-2/32/Trash-Email-Bin-512.png", height: 30, width: 30), crop: :fill, data: { confirm: "Are you sure?" }, method: :destroy) %></td>
+  </tr>
+
+<%end %>
+</table>
+
+<br>
+<hr>
+<h3>Add a new Boat to your Fleet</h3>
+<hr>
+<br>
+
+  <%= simple_form_for [@boat] do |f| %>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <%= f.input :name %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :category %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :model %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <%= f.input :brand %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :capacity %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :accesories %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <%= f.input :location%>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <%= f.input :price %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :skipper %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :photo %>
+        </div>
+      </div>
+      <div class="form-row">
+      <%=f.submit class: "btn btn-primary" %>
+    </div>
+  <%end%>
 </div>
