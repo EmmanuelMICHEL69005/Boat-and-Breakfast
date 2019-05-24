@@ -8,10 +8,19 @@
     class: "form-control"
   %>
   <%= label_tag(:capacity, "How many Buddies?") %>
-  <%=
-      range_field_tag :capacity, params[:capacity], min: 2, max: 10, step: 2
-  %>
-    <%= label_tag(:dateDebut, "Date de début de location:") %>
+
+<%= select_tag :capacity, raw("
+    <option></option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    <option>9</option>
+    <option>10</option>") %>
+
+ <br>
+  <%= label_tag(:dateDebut, "Date de début de location:") %>
   <%= text_field_tag(:dateDebut, params[:dateDebut]) %>
   <%= label_tag(:dateFin, "Date de fin:") %>
   <%= text_field_tag(:dateFin, params[:dateFin]) %>

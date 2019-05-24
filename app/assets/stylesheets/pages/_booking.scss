@@ -1,0 +1,41 @@
+.container {
+  text-align: center;
+  font-size: 16px;
+  width: 700px;
+  color: #000000;
+  padding-top: 20px;
+
+  p{
+    font-size: 22px;
+  }
+
+.button {
+  display: block;
+  margin: 1px;
+  height: 39px;
+  background-color: #19bdf9;
+  color: white;
+  border-radius: 4px;
+  }
+
+.reser{
+  font-weight: lighter;
+  font-size: 45px;
+  margin: 40px;
+  border-radius: 3px;
+  color: white;
+  font-size: bolder;
+  box-shadow: none;
+
+  }
+}
+
+
+.banner {
+background-size: cover;
+text-align: center;
+padding: 5px;
+
+}
+
+

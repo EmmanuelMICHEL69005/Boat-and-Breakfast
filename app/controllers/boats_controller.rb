@@ -18,6 +18,8 @@ class BoatsController < ApplicationController
 
   def show
     set_boat
+    @review = Review.new
+    @booking = Booking.new
   end
 
   def new

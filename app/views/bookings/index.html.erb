@@ -1,0 +1,27 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1500917832468-298fa6292e2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80);">
+  <br>
+  <br>
+    <h1><%= "Mes Reservations" %></h1>
+  <div class="container no-shadow">
+    <div class="reser">
+
+      <% @bookings.each do |booking| %>
+        <p> <b><%= "Boat name :" %></b><%= " "  %><%= booking.boat.name %></p>
+        <p><b><%= "City :" %></b><%= " "  %><%= booking.picking_place %></p>
+        <p><b><%= "Beginning date :" %></b><%= " "  %><%= booking.beginning_date %></p>
+        <p><b><%= "Ending date :" %></b><%= " "  %><%= booking.ending_date %></p>
+        <p><b><%= "Total date number:" %></b><%= " "  %>
+        <%= booking.ending_date - booking.beginning_date   %>
+        </p>
+        <p><b><%= "Total price :" %></b><%= " "  %><%= booking.price %><%= "€" %></p>
+        <br>
+      <% end %>
+      <input type="submit" name="commit" value="Confirmer" class="btn btn-success" data-disable-with=" Confirme">
+      <input type="submit" name="commit" value="Annuler" class="btn btn-danger" data-disable-with=" Confirme">
+    </div>
+
+  </div>
+
+</div>
+
+
