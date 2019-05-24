@@ -1,0 +1,5 @@
+<%= simple_form_for([ boat, review ], remote: true) do |form| %>
+  <%= form.input :content, placeholder: "Type your review", label: "Review"%>
+  <%= form.button :submit, class: 'btn btn-primary' %>
+<% end %>
+
