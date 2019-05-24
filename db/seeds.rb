@@ -1,4 +1,3 @@
-require 'faker'
 Review.destroy_all
 Booking.destroy_all
 Boat.destroy_all
