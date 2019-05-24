@@ -1,13 +1,31 @@
 class UsersController < ApplicationController
+
+  skip_before_action :authenticate_user!, only: [:index, :show]
+ def index
+
   before_action :set_user, only: :show
 
   def index
+
     @users = User.all
   end
 
   def show
+
+    set_user
+    @boat = Boat.new
+    @boat.owner = @user
+    authorize @boat
+
+
     authorize @user
   end
+
+
+
+        # @restauran = Restaurant.find(params[:restaurant_id])
+
+
 
   def new
     @user = User.new

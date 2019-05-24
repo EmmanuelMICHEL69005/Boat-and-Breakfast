@@ -34,11 +34,11 @@ class BoatsController < ApplicationController
     authorize @boat
     respond_to do |format|
       if @boat.save
-        format.html { redirect_to @boat, notice: 'Boat was successfully created.' }
+        format.html { redirect_to user_path(current_user), notice: 'Boat was successfully created.' }
         format.json { render :show, status: :created, location: @boat }
       else
-        format.html { render :new }
-        format.json { render json: @boat.errors, status: :unprocessable_entity }
+        format.html { redirect_to user_path(current_user) }
+        format.json { render json: user_path(current_user).errors, status: :unprocessable_entity }
       end
     end
   end

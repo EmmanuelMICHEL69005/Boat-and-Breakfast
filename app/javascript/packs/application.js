@@ -27,6 +27,10 @@ flatpickr("#dateDebut", {
     minDate: "today",
 });
 
+
+
+querySelector('')
+=======
 flatpickr(".beginbooking", {
   altInput: true,
     altFormat: "j F Y",
@@ -40,3 +44,4 @@ flatpickr(".endbooking", {
     dateFormat: "Y-m-d",
     minDate: "today",
 });
+
