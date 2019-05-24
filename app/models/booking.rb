@@ -7,9 +7,4 @@ class Booking < ApplicationRecord
   def price
     (ending_date - beginning_date).to_i * boat.price
   end
-
-  def user
-   # => @user = User.find(params[:id])
-  end
-
 end
