@@ -53,14 +53,16 @@
       </div>
     <%end%>
 </div>
+
 <div class="container">
     <h2>Captain description</h2>
-    <p> Bonjour à tous,
-<br>
-<br>
-<p>Je vous propose notre bateau quasi neuf et idéal pour une sortie en famille, entre amis, sécurisant pour les enfants. Important : MOTEUR 4 TEMPS nouvelle génération, consommation minimale (env. 6 litres heure en navigation normale)
-
-Il est amarré au port de Cannes, à côté du Palais des Festivals. Parking couvert à 30 mètres du bateau !!!
+ 
+<div class= "middle-content">
+  <div class="row col-8">
+    <div class= "text-content">
+      <h2>Captain description</h2>
+      <p> Bonjour à tous,
+        Je vous propose notre bateau quasi neuf et idéal pour une sortie en famille, entre amis, sécurisant pour les enfants. Important : MOTEUR 4 TEMPS nouvelle génération, consommation minimale (env. 6 litres heure en navigation normale)
 
 Vous pourrez profiter des îles de Lérins, visiter les criques des rochers rouges de l’Ésterel ou tout simplement faire une bonne partie de pêche.
 C'est le bateau idéal pour la région, profitez-en !
@@ -87,22 +89,39 @@ Le bateau est livré avec le plein d'essence (super 98). Il devra être restitu�
 </p>
 PERMIS BATEAU DEPUIS AU MINIMUM 2 ANS RÉVOLUS (aucune dérogation)
 
-PAS DE LOCATION 1/2 JOUNEE NO HALF DAY RENT
 
-Vous pouvez me poser toutes vos questions par la messagerie du site.
-A très bientôt à bord :) </p>
+        PERMIS BATEAU DEPUIS AU MINIMUM 2 ANS RÉVOLUS (aucune dérogation)
 
-<h2>Crew reviews</h2>
+        PAS DE LOCATION 1/2 JOUNEE NO HALF DAY RENT
 
-  <% @boat.reviews.each do |review| %>
-  <div class ="reviews">
-    <h5 style = "color:grey; font-style: italic" class="special">"<%= review.content %>"</h5>
-    <% review.rating.times do %>
-        <i class="far fa-star fa-2x text-warning"></i>
-    <% end %>
+        Vous pouvez me poser toutes vos questions par la messagerie du site.
+        A très bientôt à bord :) </p>
+    </div>
   </div>
-  <% end %>
 
-  <div class="btn-primary  boutonReservez" value= "Je veux reserver ce bateau"></div>
+  <div class="row-book col-4">
+    <h2> Book this boat</h2>
+    </br>
+    <p>Choose your date</p>
+    </br>
+    <%= render "forms/booking" %>
+  </div>
 
 </div>
+
+<div id="reviews">
+  <h2>Crew reviews</h2>
+  <% if @boat.reviews.blank? %>
+    Be the first to leave a review for <%= @boat.name %>
+   <% else %>
+    <% @boat.reviews.each do |review| %>
+      <p><%= review.content %></p>
+    <% end %>
+  <% end %>
+</div>
+
+
+<div class= "form-review">
+  <%= render 'reviews/form', boat: @boat, review: @review %>
+</div>
+

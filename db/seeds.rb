@@ -118,8 +118,8 @@ user3 = User.create!(
 #ending = ((Time.now + rand(4)* 60*24*60).strftime("%d/%m/%y"))
 
 booking1 = Booking.create!(
-    beginning_date: Time.now.strftime("%d/%m/%y"),
-    ending_date: (Time.now + rand(4)* 60*24*60).strftime("%d/%m/%y"),
+    beginning_date: Date.today,
+    ending_date: 2.day.from_now.to_date,
     total_price: 190,
     picking_place: 'Toulon',
     leaving_place: 'Monaco',
@@ -128,8 +128,8 @@ booking1 = Booking.create!(
 )
 
 booking2 = Booking.create!(
-    beginning_date: Time.now.strftime("%d/%m/%y"),
-    ending_date: (Time.now + rand(4)* 60*24*60).strftime("%d/%m/%y"),
+    beginning_date: 1.day.from_now.to_date,
+    ending_date: 4.day.from_now.to_date,
     total_price: 50005,
     picking_place: 'Lyon',
     leaving_place: 'Grenoble',
