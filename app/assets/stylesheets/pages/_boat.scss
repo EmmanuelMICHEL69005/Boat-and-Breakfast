@@ -10,3 +10,28 @@ justify-content: space-between;
 background-color: rgb(230,230,230);
 }
 
+.middle-content {
+display:flex;
+padding-right: 100px;
+padding-left: 100px;
+padding-top: 50px;
+}
+
+#reviews {
+padding-right: 100px;
+padding-left: 100px;
+}
+
+.row-book {
+padding-top: 20px;
+margin-left: 50px;
+margin-right: 50px;
+background-color: #fbfbfbcf;
+border-radius: 8px;
+}
+
+.form-review {
+padding-top: 20px;
+padding-right: 100px;
+padding-left: 100px;
+}
