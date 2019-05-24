@@ -26,3 +26,6 @@ flatpickr("#dateDebut", {
     dateFormat: "Y-m-d",
     minDate: "today",
 });
+
+
+querySelector('')

@@ -1,0 +1,51 @@
+<h1> Welcome to your setting page </h1>
+
+<h2>Change your account parameters</h2>
+
+<div class="edit-user">
+
+   <form action="/">
+    <label for="Last_Name">Last Name</label>
+    <input type="text" name="Last_name" id="Last_name" value=<%=@user.last_name%>><br>
+    <label for="First_Name">Last Name</label>
+    <input type="text" name="First_name" id="First_name" value=<%=@user.first_name%>><br>
+    <label for="Phone_Number">Phone Number</label>
+    <input type="text" name="phone" id="Phone_number" value=<%=@user.phone_number%>><br>
+    <label for="Boat_licence">Boat Licence</label>
+    <input type="text" name="Boat_licence" id="Boat_licence" value=<%=@user.boat_licence%>><br>
+    <label for="Email">Phone Number</label>
+    <input type="text" name="Email" id="Email" value=<%=@user.email%>><br>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+<h2>Manage your float</h2>
+<input type="submit" name="commit" value="Add a Boat" class="button" data-disable-with="Add a Boat">
+
+<%@user.boats.each do |boat|%>
+<p><%=boat.name%></p>
+<%end %>
+
+
+<div class="container">
+   <div class="form-row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <h2>Create a Boat</h2>
+      </div>
+          <div class="form-inputs-2">
+            <%= simple_form_for [@boat] do |f| %>
+              <%= f.input :name %>
+              <%= f.input :category %>
+              <%= f.input :photo %>
+              <%= f.input :brand %>
+              <%= f.input :model %>
+              <%= f.input :capacity %>
+              <%= f.input :length %>
+              <%= f.input :location %>
+              <%= f.input :price %>
+              <%= f.input :accesories %>
+              <%= f.input :skipper %>
+              <%=f.submit class: "btn btn-primary" %>
+            <%end%>
+          </div>
+    </div>
+</div>
