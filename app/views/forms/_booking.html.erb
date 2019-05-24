@@ -1,5 +1,5 @@
 <%= simple_form_for @booking do |form| %>
-  <%= form.input :beginning_date, as: :date%>
-  <%= form.input :ending_date, as: :date %>
+  <%= form.input :beginning_date, as: :date, html5: true, :input_html => {class: 'beginbooking'}%>
+  <%= form.input :ending_date, as: :date, html5: true, :input_html => {class: 'endbooking'}%>
   <%= form.button :submit, class: 'btn btn-primary' %>
 <% end %>
