@@ -1,8 +1,7 @@
-require 'faker'
 Review.destroy_all
-User.destroy_all
 Booking.destroy_all
 Boat.destroy_all
+User.destroy_all
 
 
 20.times do
@@ -75,7 +74,6 @@ boat1 = Boat.create!(
     "https://cdn.nautal.com/media/boats/463/x/463060.jpg",
     "https://samboat.cellar.services.clever-cloud.com/announcements/5b22c4934431d-m.jpg",
     "https://fifty-wp.s3.amazonaws.com/detours/uploads/2018/08/louer-un-voilier-potes-800x480.png"].sample,
-  capacity: (4..10).to_a.sample,
   picture: "https://fifty-wp.s3.amazonaws.com/detours/uploads/2018/08/louer-un-voilier-potes-800x480.png",
   length: 12,
   location: 'Toulon',
@@ -97,7 +95,6 @@ boat2 = Boat.create!(
     "https://samboat.cellar.services.clever-cloud.com/announcements/5b22c4934431d-m.jpg",
     "https://fifty-wp.s3.amazonaws.com/detours/uploads/2018/08/louer-un-voilier-potes-800x480.png"].sample,
   picture: "https://fifty-wp.s3.amazonaws.com/detours/uploads/2018/08/louer-un-voilier-potes-800x480.png",
-  capacity: (4..10).to_a.sample,
   length: 14,
   location: 'Toulon',
   price: 250,

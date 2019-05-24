@@ -22,13 +22,13 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'awesome_print'
 gem 'geocoder'
+gem 'faker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
 group :development, :test do
-  gem 'faker'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
