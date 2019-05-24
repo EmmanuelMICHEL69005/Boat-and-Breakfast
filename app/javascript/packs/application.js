@@ -30,7 +30,6 @@ flatpickr("#dateDebut", {
 
 
 querySelector('')
-=======
 flatpickr(".beginbooking", {
   altInput: true,
     altFormat: "j F Y",
